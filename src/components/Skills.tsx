@@ -58,6 +58,16 @@ const UNIVERSE_TOOLS: UniverseTool[] = [
     description: 'Structured bilingual prompt engineering ensuring character and environmental continuity.',
     context: 'Standardized shot documentation across multi-scene generative productions.',
   },
+  {
+    id: 'comfyui',
+    name: 'ComfyUI',
+    role: 'Node-Based AI Workflows',
+    category: 'ai',
+    badge: 'CU',
+    accent: '#10b981',
+    description: 'Visual node graphs for multi-pass diffusion, character consistency LoRAs, and reference staging.',
+    context: 'Deep custom pipeline architecture for consistent multi-shot video generations.',
+  },
 
   // 2. Post-Production & Motion
   {
@@ -104,6 +114,16 @@ const UNIVERSE_TOOLS: UniverseTool[] = [
   },
 
   // 3. Code & Technical Systems
+  {
+    id: 'python',
+    name: 'Python',
+    role: 'Media Automation & Scripting',
+    category: 'code',
+    badge: 'Py',
+    accent: '#38bdf8',
+    description: 'Automated video batch processing, metadata pipelines, and asset manipulation scripts.',
+    context: 'Batch media processing pipelines and developer workflow tooling.',
+  },
   {
     id: 'javascript',
     name: 'JavaScript / TS',

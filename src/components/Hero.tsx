@@ -3,7 +3,7 @@ import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'fram
 import { profile, type ProfileId } from '../data/portfolio';
 import { useFinePointer } from '../hooks/useMedia';
 import { EASE, Particles } from './fx';
-export default function Hero({ onPlay: _onPlay, onResume: _onResume, profileId: _profileId }: { onPlay?: () => void; onResume?: () => void; profileId?: ProfileId }) {
+export default function Hero({ onPlay, onResume, profileId: _profileId }: { onPlay?: () => void; onResume?: () => void; profileId?: ProfileId }) {
   const ref = useRef<HTMLElement>(null);
   const fine = useFinePointer();
 
@@ -104,13 +104,41 @@ export default function Hero({ onPlay: _onPlay, onResume: _onResume, profileId: 
           {profile.seriesTag}
         </p>
 
+        {/* Cinematic Netflix Hero Action Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8, ease: EASE }}
+          className="pointer-events-auto mt-6 flex flex-wrap items-center justify-center gap-3.5"
+        >
+          {onPlay && (
+            <button
+              type="button"
+              onClick={onPlay}
+              className="group flex min-h-11 items-center gap-2.5 rounded-md bg-white px-6 py-2.5 font-['Oswald'] text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-black shadow-[0_4px_24px_rgba(0,0,0,0.6)] transition-all duration-300 hover:bg-crimson hover:text-white hover:shadow-[0_0_30px_rgba(229,19,43,0.6)] hover:scale-105 active:scale-95"
+            >
+              <span className="text-sm transition-transform duration-300 group-hover:scale-115">▶</span>
+              <span>PLAY REEL</span>
+            </button>
+          )}
+          {onResume && (
+            <button
+              type="button"
+              onClick={onResume}
+              className="group flex min-h-11 items-center gap-2.5 rounded-md border border-white/30 bg-black/55 px-6 py-2.5 font-['Oswald'] text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-bone backdrop-blur-md transition-all duration-300 hover:border-white hover:bg-black/80 hover:scale-105 active:scale-95"
+            >
+              <span className="text-sm">📄</span>
+              <span>THE SCREENPLAY</span>
+            </button>
+          )}
+        </motion.div>
 
         {/* Professional Telemetry Status Pill (Replaces generic bouncy arrow) */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="absolute bottom-8 flex items-center gap-3 rounded-full border border-white/10 bg-black/45 px-4 py-1.5 backdrop-blur-md"
+          className="pointer-events-auto absolute bottom-8 flex items-center gap-3 rounded-full border border-white/10 bg-black/45 px-4 py-1.5 backdrop-blur-md"
         >
           <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981] animate-pulse" />
           <span className="font-['Oswald'] text-[10.5px] font-semibold tracking-[0.26em] text-bone/80 uppercase">

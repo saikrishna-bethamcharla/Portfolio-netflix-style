@@ -57,7 +57,20 @@ export default function Navbar({ order, profileId: _profileId, onSwitch: _onSwit
           solid || mobileNav ? 'bg-ink/80 backdrop-blur-xl' : 'bg-gradient-to-b from-black/80 to-transparent'
         }`}
       >
-        <div className="flex items-center gap-8 lg:gap-10">
+        <div className="flex items-center gap-6 lg:gap-10">
+          <button
+            type="button"
+            onClick={() => go('top')}
+            className="group flex items-center gap-2.5 focus-ring"
+            aria-label="Sai Krishna Home"
+          >
+            <span className="flex h-8 w-8 items-center justify-center rounded-md bg-crimson font-display text-xl font-bold leading-none text-white shadow-[0_0_15px_rgba(229,19,43,0.5)] transition duration-300 group-hover:scale-105 group-hover:bg-crimson-2">
+              S
+            </span>
+            <span className="font-display text-lg tracking-wider text-bone transition duration-300 group-hover:text-white">
+              SAI KRISHNA
+            </span>
+          </button>
           <nav className="hidden items-center gap-6 lg:flex" aria-label="Sections">
             <NavLink label="Home" active={active === 'top'} onClick={() => go('top')} />
             {order.map((id) => (
